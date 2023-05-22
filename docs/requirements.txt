@@ -19,13 +19,19 @@ sphinxcontrib-plantuml==0.21
 sphinxcontrib-programoutput==0.17
 sphinxcontrib-qthelp==1.0.3
 sphinxcontrib-serializinghtml==1.1.5
-tqdm>=4
 sphinx_copybutton>=0.5.2
 
 sphinx_bootstrap_theme
 sphinx_autodoc_typehints
 
 pytest
+
+tqdm>=4
+numpy>=1.24.3
+pandas>=2.0.1
+pytz>=2023.3
+scikit-learn
+ipython
 
 torch
 transformers>=4
