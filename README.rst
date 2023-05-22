@@ -1,5 +1,5 @@
 =========
-bertagent
+BERTAgent
 =========
 
 .. image:: https://img.shields.io/pypi/v/bertagent?version=latest

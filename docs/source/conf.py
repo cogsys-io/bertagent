@@ -80,7 +80,7 @@ source_suffix = ".rst"
 master_doc = "index"
 
 # General information about the project.
-project = "bertagent"
+project = "BERTAgent"
 copyright = "2023, cogsys.io"
 author = "cogsys.io"
 

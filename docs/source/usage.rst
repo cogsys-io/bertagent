@@ -3,7 +3,7 @@ Usage
 =====
 
 After following :ref:`installation:Installation` instructions,
-to use bertagent in a project::
+to use BERTAgent in a project:
 
     >>> import bertagent
 

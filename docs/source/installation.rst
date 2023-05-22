@@ -8,7 +8,7 @@ Installation
 Stable release
 --------------
 
-To install bertagent, run this command in your terminal:
+To install BERTAgent, run this command in your terminal:
 
 .. code-block:: console
 
@@ -26,7 +26,7 @@ you through the process.
 From sources
 ------------
 
-The sources for bertagent can be downloaded from the `Github repo`_.
+The sources for BERTAgent can be downloaded from the `Github repo`_.
 
 You can either clone the public repository:
 

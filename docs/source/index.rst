@@ -1,4 +1,4 @@
-🚀 Welcome to bertagent's documentation!
+🚀 Welcome to BERTAgent's documentation!
 ========================================
 
 .. image:: https://img.shields.io/pypi/v/bertagent?version=latest
