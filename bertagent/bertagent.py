@@ -230,7 +230,7 @@ class BERTAgent:
         self.model.to(device)
         self.model.eval()
 
-        self.log0.debug(f"{self.model.device = }")
+        # self.log0.debug(f"{self.model.device = }")
         self.log0.debug(f"{self.model.training = }")
         self.log0.debug(f"{self.tokenizer = }")
         self.log0.debug(f"{self.tokenizer_params = }")
