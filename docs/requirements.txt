@@ -26,10 +26,10 @@ sphinx_autodoc_typehints
 
 pytest
 
-tqdm>=4
-numpy>=1.24.3
-pandas>=2.0.1
-pytz>=2023.3
+tqdm
+numpy
+pandas
+pytz
 scikit-learn
 ipython
 
