@@ -112,9 +112,9 @@ class BERTAgent:
     >>> # Load BERTAgent
     >>> dir0 = pathlib.Path().home()/"bertagent"
     >>> model_path = "BERTAgent-on-HuggingFace"  # OR local copy ↓
-    >>> model_path = dir0/"20230522T012311_status-DEPLOY_data-" \
+    >>> model_path = dir0/"20230522T012311_status-DEPLOY_data-" \\
     >>>     "ft3x_testing-both_epo-012_model-roberta-base/final/"
-    >>> model_path = dir0/"20230522T030117_status-DEPLOY_data-" \
+    >>> model_path = dir0/"20230522T030117_status-DEPLOY_data-" \\
     >>>     "ft1x_testing-both_epo-012_model-roberta-base/final/"
     >>>
     >>> tokenizer_path = model_path
@@ -153,9 +153,9 @@ class BERTAgent:
     >>> # Load BERTAgent
     >>> dir0 = pathlib.Path().home()/"bertagent"
     >>> model_path = "BERTAgent-on-HuggingFace"  # OR local copy ↓
-    >>> model_path = dir0/"20230522T012311_status-DEPLOY_data-" \
+    >>> model_path = dir0/"20230522T012311_status-DEPLOY_data-" \\
     >>>     "ft3x_testing-both_epo-012_model-roberta-base/final/"
-    >>> model_path = dir0/"20230522T030117_status-DEPLOY_data-" \
+    >>> model_path = dir0/"20230522T030117_status-DEPLOY_data-" \\
     >>>     "ft1x_testing-both_epo-012_model-roberta-base/final/"
     >>>
     >>> tokenizer_path = model_path
