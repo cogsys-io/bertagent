@@ -28,4 +28,4 @@ sphinx_autodoc_typehints
 pytest
 
 torch
-transformers>=4.20.0
+transformers>=4

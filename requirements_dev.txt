@@ -37,4 +37,4 @@ scikit-learn
 ipython
 
 torch
-transformers>=4.20.0
+transformers>=4
