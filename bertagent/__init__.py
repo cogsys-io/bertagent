@@ -13,13 +13,14 @@ __author__ = """cogsys.io"""
 __email__ = "bertagent@cogsys.io"
 
 
-def get_module_version():
-    return __version__
-
-
 from .bertagent import EXAMPLE_SENTENCES
 from .bertagent import TOKENIZER_PARAMS
 from .bertagent import MAX_LENGTH
 from .bertagent import BERTAgent
+
+
+def get_module_version():
+    return __version__
+
 
 # end

@@ -112,8 +112,10 @@ class BERTAgent:
     >>> # Load BERTAgent
     >>> dir0 = pathlib.Path().home()/"bertagent"
     >>> model_path = "BERTAgent-on-HuggingFace"  # OR local copy ↓
-    >>> model_path = dir0/"20230522T012311_status-DEPLOY_data-ft3x_testing-both_epo-012_model-roberta-base/final/"
-    >>> model_path = dir0/"20230522T030117_status-DEPLOY_data-ft1x_testing-both_epo-012_model-roberta-base/final/"
+    >>> model_path = dir0/"20230522T012311_status-DEPLOY_data-" \
+    >>>     "ft3x_testing-both_epo-012_model-roberta-base/final/"
+    >>> model_path = dir0/"20230522T030117_status-DEPLOY_data-" \
+    >>>     "ft1x_testing-both_epo-012_model-roberta-base/final/"
     >>>
     >>> tokenizer_path = model_path
     >>> ba0 = BERTAgent(
@@ -151,8 +153,10 @@ class BERTAgent:
     >>> # Load BERTAgent
     >>> dir0 = pathlib.Path().home()/"bertagent"
     >>> model_path = "BERTAgent-on-HuggingFace"  # OR local copy ↓
-    >>> model_path = dir0/"20230522T012311_status-DEPLOY_data-ft3x_testing-both_epo-012_model-roberta-base/final/"
-    >>> model_path = dir0/"20230522T030117_status-DEPLOY_data-ft1x_testing-both_epo-012_model-roberta-base/final/"
+    >>> model_path = dir0/"20230522T012311_status-DEPLOY_data-" \
+    >>>     "ft3x_testing-both_epo-012_model-roberta-base/final/"
+    >>> model_path = dir0/"20230522T030117_status-DEPLOY_data-" \
+    >>>     "ft1x_testing-both_epo-012_model-roberta-base/final/"
     >>>
     >>> tokenizer_path = model_path
     >>> ba0 = BERTAgent(
@@ -194,11 +198,7 @@ class BERTAgent:
     >>> ]
     >>>
     >>> print(f"{df0.shape = }")
-    >>> print(df0[cols0].tail(n=4))
-    # 37   [We should take control and assert our position]            1                      [0.7752779126167297]  0.775278  0.775278  0.000000  0.775278
-    # 38                           [We should take control]            1                      [0.8171806931495667]  0.817181  0.817181  0.000000  0.817181
-    # 39                           [We shoud take controll]            1                       [0.476179301738739]  0.476179  0.476179  0.000000  0.476179
-    # 40  [Hard working individual,  Hardly working indi...            2  [0.5217444896697998, -0.630462110042572] -0.054359  0.260872  0.315231  0.576103
+    >>> df0[cols0].tail(n=4)
 
     """
 
