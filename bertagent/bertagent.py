@@ -18,15 +18,6 @@ from typing import (
 from transformers import AutoModelForSequenceClassification
 from transformers import AutoTokenizer
 
-MAX_LENGTH = 128
-TOKENIZER_PARAMS = dict(
-    add_special_tokens=True,
-    max_length=MAX_LENGTH,
-    padding="max_length",
-    truncation=True,
-    return_attention_mask=True,
-)
-
 EXAMPLE_SENTENCES = [
     "She is a hard working individual",
     "She is a hardly working individual",
@@ -71,6 +62,15 @@ EXAMPLE_SENTENCES = [
     "Hard working individual. Hardly working individual",
 ]
 
+MAX_LENGTH = 128
+TOKENIZER_PARAMS = dict(
+    add_special_tokens=True,
+    max_length=MAX_LENGTH,
+    padding="max_length",
+    truncation=True,
+    return_attention_mask=True,
+)
+
 
 class BERTAgent:
     """Evaluates agency in a list of sentences.
@@ -80,17 +80,23 @@ class BERTAgent:
     model_path : Union[str, pathlib.Path]
         path to huggingface repository or a local directory
         containing fine-tuned model (e.g., BERTAgent)
+
     tokenizer_path : Union[str, pathlib.Path]
         path to text tokenizer
+
     tokenizer_params : Dict
         tokenizer parameters dictionary, see examples below
         (``TOKENIZER_PARAMS``)
+
     device : Union[str, torch.device] = "cuda"
         torch device to use (default = "cuda")
+
     factor : float
         response scaling factor (default = 1)
+
     bias : float = 0.0
         response shifting factor (default = 0)
+
     log0 : logging.Logger
         optional logger to use
 
@@ -201,7 +207,8 @@ class BERTAgent:
         model_path: Union[str, pathlib.Path],  # TODO add default path
         tokenizer_path: Union[str, pathlib.Path],  # TODO add default path
         tokenizer_params: Dict = TOKENIZER_PARAMS,
-        device: Union[str, torch.device] = "cuda",
+        # device: Union[str, torch.device] = "cuda",  # TODO checkup
+        device: str = "cuda",
         factor: float = 1.0,
         bias: float = 0.0,
         log0: logging.Logger = logging.getLogger("dummy"),
