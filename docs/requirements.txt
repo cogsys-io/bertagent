@@ -26,3 +26,6 @@ sphinx_bootstrap_theme
 sphinx_autodoc_typehints
 
 pytest
+
+torch
+transformers>=4.20.0
