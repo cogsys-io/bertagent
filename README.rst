@@ -16,9 +16,9 @@ bertagent
 Quantify linguistic agency in textual data.
 
 
+* Publication: BERTAgent: A Novel Tool to Quantify Agency in Textual Data
 * Free software: GNU General Public License v3
 * Documentation: https://bertagent.readthedocs.io.
-
 
 Features
 --------
