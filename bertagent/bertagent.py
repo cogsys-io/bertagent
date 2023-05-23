@@ -116,6 +116,8 @@ class BERTAgent:
     >>>     "ft3x_testing-both_epo-012_model-roberta-base/final/"
     >>> model_path = dir0/"20230522T030117_status-DEPLOY_data-" \\
     >>>     "ft1x_testing-both_epo-012_model-roberta-base/final/"
+    >>> model_path = dir0/"20230522T163726_status-DEPLOY_data-" \\
+    >>>     "ft3x_testing-both_epo-012_model-roberta-base/final/"
     >>>
     >>> tokenizer_path = model_path
     >>> ba0 = BERTAgent(
@@ -157,6 +159,8 @@ class BERTAgent:
     >>>     "ft3x_testing-both_epo-012_model-roberta-base/final/"
     >>> model_path = dir0/"20230522T030117_status-DEPLOY_data-" \\
     >>>     "ft1x_testing-both_epo-012_model-roberta-base/final/"
+    >>> model_path = dir0/"20230522T163726_status-DEPLOY_data-" \\
+    >>>     "ft3x_testing-both_epo-012_model-roberta-base/final/"
     >>>
     >>> tokenizer_path = model_path
     >>> ba0 = BERTAgent(
