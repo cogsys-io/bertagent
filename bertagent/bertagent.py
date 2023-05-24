@@ -12,6 +12,7 @@ import numpy as np
 from typing import (
     Dict,
     Union,
+    Sequence,
     List,
 )
 
@@ -111,15 +112,11 @@ class BERTAgent:
     >>>
     >>> # Load BERTAgent
     >>> dir0 = pathlib.Path().home()/"bertagent"
-    >>> model_path = "BERTAgent-on-HuggingFace"  # OR local copy ↓
-    >>> model_path = dir0/"20230522T012311_status-DEPLOY_data-" \\
-    >>>     "ft3x_testing-both_epo-012_model-roberta-base/final/"
-    >>> model_path = dir0/"20230522T030117_status-DEPLOY_data-" \\
-    >>>     "ft1x_testing-both_epo-012_model-roberta-base/final/"
-    >>> model_path = dir0/"20230522T163726_status-DEPLOY_data-" \\
-    >>>     "ft3x_testing-both_epo-012_model-roberta-base/final/"
-    >>>
+    >>> model_path = "BERTAgent-on-HuggingFace"  # TODO OR a local copy ↓
+    >>> model_path = dir0/"20230523T145242_status-DEPLOY_data-" \\
+    >>>     "ft3x_testing-gold_epo-012_model-roberta-base/final"
     >>> tokenizer_path = model_path
+    >>>
     >>> ba0 = BERTAgent(
     >>>     model_path = model_path,
     >>>     tokenizer_path = tokenizer_path,
@@ -132,7 +129,7 @@ class BERTAgent:
     >>>     "hard working individual",
     >>> ]
     >>> vals = ba0.predict(sents)
-    >>> for item in zip(sents,vals):
+    >>> for item in zip(sents, vals):
     >>>     print(item)
     # ('stiving to achieve my goals', 0.6652301549911499)
     # ('struglling to survive', 0.2248774766921997)
@@ -144,7 +141,7 @@ class BERTAgent:
 
     Process a texts in pandas dataframe.
 
-    >>> # Imports
+    >>> # Imports.
     >>> import pathlib
     >>> import pandas as pd
     >>> from tqdm import tqdm
@@ -152,44 +149,31 @@ class BERTAgent:
     >>> from bertagent import EXAMPLE_SENTENCES as sents
     >>> tqdm.pandas()
     >>>
-    >>> # Load BERTAgent
+    >>> # Load BERTAgent.
     >>> dir0 = pathlib.Path().home()/"bertagent"
-    >>> model_path = "BERTAgent-on-HuggingFace"  # OR local copy ↓
-    >>> model_path = dir0/"20230522T012311_status-DEPLOY_data-" \\
-    >>>     "ft3x_testing-both_epo-012_model-roberta-base/final/"
-    >>> model_path = dir0/"20230522T030117_status-DEPLOY_data-" \\
-    >>>     "ft1x_testing-both_epo-012_model-roberta-base/final/"
-    >>> model_path = dir0/"20230522T163726_status-DEPLOY_data-" \\
-    >>>     "ft3x_testing-both_epo-012_model-roberta-base/final/"
+    >>> model_path = "BERTAgent-on-HuggingFace"  # TODO OR a local copy ↓
+    >>> model_path = dir0/"20230523T145242_status-DEPLOY_data-" \\
+    >>>     "ft3x_testing-gold_epo-012_model-roberta-base/final"
+    >>> ba0 = BERTAgent(model_path = model_path)
     >>>
-    >>> tokenizer_path = model_path
-    >>> ba0 = BERTAgent(
-    >>>     model_path = model_path,
-    >>>     tokenizer_path = tokenizer_path,
-    >>> )
-    >>>
-    >>> # Prepare dataframe
+    >>> # Prepare dataframe.
     >>> df0 = pd.DataFrame(dict(text=sents))
-    >>> df0["source"] = "examples"
-    >>> # df0["sents"] = df0.text.apply(lambda x: [x])
-    >>> df0["sents"] = df0.text.str.split(".")  # NOTE: This is not an optimal method for real data!
     >>>
-    >>> df0["sents_count"] = df0.sents.apply(len)
-    >>> print(f"{df0.shape = }")
+    >>> # Extract sentences from text.
+    >>> # NOTE: This is not an optimal method for real data!
+    >>> df0["sents"] = df0.text.str.split(".")
+    >>>
     >>> print(df0.head(n=4))
-    >>>
+
+
     >>> # Evaluate agency
-    >>> df0["ba0"] = df0.sents.progress_apply(ba0.predict)
+    >>> model_id = "ba0"
+    >>> df0[model_id] = df0.sents.progress_apply(ba0.predict)
     >>>
-    >>> df0["baTot_sum"] = df0["ba0"].apply(lambda x: sum([val for val in x]))
-    >>> df0["baPos_sum"] = df0["ba0"].apply(lambda x: sum([val for val in x if val > 0]))
-    >>> df0["baNeg_sum"] = df0["ba0"].apply(lambda x: sum([abs(val) for val in x if val < 0]))
-    >>> df0["baAbs_sum"] = df0["ba0"].apply(lambda x: sum([abs(val) for val in x]))
-    >>>
-    >>> df0["BATot"] = df0["baTot_sum"]/df0["sents_count"]
-    >>> df0["BAPos"] = df0["baPos_sum"]/df0["sents_count"]
-    >>> df0["BANeg"] = df0["baNeg_sum"]/df0["sents_count"]
-    >>> df0["BAAbs"] = df0["baAbs_sum"]/df0["sents_count"]
+    >>> df0["BATot"] = df0[model_id].apply(ba0.tot)
+    >>> df0["BAPos"] = df0[model_id].apply(ba0.pos)
+    >>> df0["BANeg"] = df0[model_id].apply(ba0.neg)
+    >>> df0["BAAbs"] = df0[model_id].apply(ba0.abs)
     >>>
     >>> cols0 = [
     >>>     "sents",
@@ -201,8 +185,8 @@ class BERTAgent:
     >>>     "BAAbs",
     >>> ]
     >>>
-    >>> print(f"{df0.shape = }")
-    >>> df0[cols0].tail(n=4)
+    >>> # Check example rows.
+    >>> df0[cols0].tail(n=8)
 
     """
 
@@ -211,12 +195,18 @@ class BERTAgent:
         model_path: Union[str, pathlib.Path],  # TODO add default path
         tokenizer_path: Union[str, pathlib.Path],  # TODO add default path
         tokenizer_params: Dict = TOKENIZER_PARAMS,
-        # device: Union[str, torch.device] = "cuda",  # TODO checkup
-        device: str = "cuda",
+        device: Union[str, torch.device] = "cuda",  # TODO checkup
+        # device: str = "cuda",
         factor: float = 1.0,
         bias: float = 0.0,
         log0: logging.Logger = logging.getLogger("dummy"),
     ):
+        if model_path is None:
+            pass
+
+        if tokenizer_path is None:
+            tokenizer_path = model_path
+
         self.model = AutoModelForSequenceClassification.from_pretrained(
             str(model_path),
             num_labels=1,
@@ -240,6 +230,26 @@ class BERTAgent:
         self.log0.debug(f"{self.tokenizer_params = }")
 
     def predict(self, sentences: List[str]) -> List[float]:
+        """Predict agency for a list of texts.
+
+        Parameters
+        ----------
+        sentences : List[str]
+            a list of texts (e.g., sentences).
+
+        Returns
+        -------
+        List[float]
+            List of scores.
+
+
+        .. note::
+            See doc for the BERTAgent class for usage examples.
+
+
+
+
+        """
         batch_encodings = self.tokenizer(
             list(sentences),
             None,
@@ -262,3 +272,106 @@ class BERTAgent:
         batch_encodings.to(self.model.device)
         torch.cuda.empty_cache()  # CONSIDER DROP
         return predictions
+
+    @classmethod
+    def tot(self, vals: List[Union[int, float]]) -> float:
+        """Get the total score (mean) from a list of BERTAgent scores.
+
+        Parameters
+        ----------
+        vals : List[Union[int, float]]
+            a list of scores.
+
+        Returns
+        -------
+        float
+            Agency (total) score.
+
+
+        .. note::
+            See doc for the BERTAgent class for usage examples.
+
+        """
+
+        len0 = len(vals)
+        return sum(vals) / len0 if len0 else 0
+
+    @classmethod
+    def pos(self, vals):
+        """Get the agency-positive score from a list of BERTAgent scores.
+
+        This score is commuted as mean of all scores with negative
+        values replaced by 0.
+
+        Parameters
+        ----------
+        vals : List[Union[int, float]]
+            a list of scores.
+
+        Returns
+        -------
+        float
+            Agency-positive score.
+
+
+        .. note::
+            See doc for the BERTAgent class for usage examples.
+
+        """
+
+        len0 = len(vals)
+        vals = [val for val in vals if val > 0]
+        return sum(vals) / len0 if len0 else 0
+
+    @classmethod
+    def neg(self, vals):
+        """Get the agency-negative score from a list of BERTAgent scores.
+
+         This score is commuted as mean of all scores with positive
+         values replaced by 0.
+
+         Parameters
+         ----------
+         vals : List[Union[int, float]]
+             a list of scores.
+
+        Returns
+        -------
+        float
+            Agency-negative score.
+
+
+        .. note::
+            See doc for the BERTAgent class for usage examples.
+
+        """
+
+        len0 = len(vals)
+        vals = [-val for val in vals if val < 0]
+        return sum(vals) / len0 if len0 else 0
+
+    @classmethod
+    def abs(self, vals):
+        """Get the agency-absolute score from a list of BERTAgent scores.
+
+         This score is commuted as mean of absolute values of all scores.
+
+         Parameters
+         ----------
+         vals : List[Union[int, float]]
+             a list of scores.
+
+        Returns
+        -------
+        float
+            Agency-absolute score.
+
+
+        .. note::
+            See doc for the BERTAgent class for usage examples.
+
+        """
+
+        len0 = len(vals)
+        vals = [abs(val) for val in vals]
+        return sum(vals) / len0 if len0 else 0
