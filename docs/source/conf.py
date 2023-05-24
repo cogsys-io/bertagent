@@ -62,6 +62,7 @@ napoleon_custom_sections = ["Bonus"]
 
 # Config autodoc
 autoclass_content = "both"  # include init doc with class
+autodoc_member_order = "bysource"
 
 # Config autosectionlabel
 autosectionlabel_prefix_document = True
