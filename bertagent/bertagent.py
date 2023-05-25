@@ -177,7 +177,6 @@ class BERTAgent:
     >>>
     >>> cols0 = [
     >>>     "sents",
-    >>>     "sents_count",
     >>>     "ba0",
     >>>     "BATot",
     >>>     "BAPos",
