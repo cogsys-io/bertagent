@@ -14,6 +14,7 @@ from typing import (
     Union,
     Sequence,
     List,
+    Optional,
 )
 
 from transformers import AutoModelForSequenceClassification
@@ -131,10 +132,11 @@ class BERTAgent:
     >>> vals = ba0.predict(sents)
     >>> for item in zip(sents, vals):
     >>>     print(item)
-    # ('stiving to achieve my goals', 0.6652301549911499)
-    # ('struglling to survive', 0.2248774766921997)
-    # ('hardly working individual', -0.668789267539978)
-    # ('hard working individual', 0.5652958154678345)
+    #
+    # ('stiving to achieve my goals', 0.7477692365646362)
+    # ('struglling to survive', 0.043704114854335785)
+    # ('hardly working individual', -0.5707859396934509)
+    # ('hard working individual', 0.43518713116645813)
     #
     # NOTE: exact values may differ slightly from the above
     # depending on the BERTAgent model used and version.
@@ -191,8 +193,8 @@ class BERTAgent:
 
     def __init__(
         self,
-        model_path: Union[str, pathlib.Path],  # TODO add default path
-        tokenizer_path: Union[str, pathlib.Path],  # TODO add default path
+        model_path: Union[str, pathlib.Path] = None,
+        tokenizer_path: Union[str, pathlib.Path, None] = None,
         tokenizer_params: Dict = TOKENIZER_PARAMS,
         device: Union[str, torch.device] = "cuda",  # TODO checkup
         # device: str = "cuda",
