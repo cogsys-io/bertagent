@@ -112,16 +112,7 @@ class BERTAgent:
     >>> from bertagent import BERTAgent
     >>>
     >>> # Load BERTAgent
-    >>> dir0 = pathlib.Path().home()/"bertagent"
-    >>> model_path = dir0/"20230523T145242_status-DEPLOY_data-" \\
-    >>>     "ft3x_testing-gold_epo-012_model-roberta-base/final"
-    >>> model_path = "EnchantedStardust/bertagent-best"  # OR a local copy ↑
-    >>> tokenizer_path = model_path
-    >>>
-    >>> ba0 = BERTAgent(
-    >>>     model_path = model_path,
-    >>>     tokenizer_path = tokenizer_path,
-    >>> )
+    >>> ba0 = BERTAgent()
     >>>
     >>> sents = [
     >>>     "stiving to achieve my goals",
@@ -152,17 +143,13 @@ class BERTAgent:
     >>> tqdm.pandas()
     >>>
     >>> # Load BERTAgent.
-    >>> dir0 = pathlib.Path().home()/"bertagent"
-    >>> model_path = dir0/"20230523T145242_status-DEPLOY_data-" \\
-    >>>     "ft3x_testing-gold_epo-012_model-roberta-base/final"
-    >>> model_path = "EnchantedStardust/bertagent-best"  # OR a local copy ↑
-    >>> ba0 = BERTAgent(model_path = model_path)
+    >>> ba0 = BERTAgent()
     >>>
     >>> # Prepare dataframe.
     >>> df0 = pd.DataFrame(dict(text=sents))
     >>>
     >>> # Extract sentences from text.
-    >>> # NOTE: This is not an optimal method for real data!
+    >>> # NOTE: This is not an optimal method to get sentences from real data!
     >>> df0["sents"] = df0.text.str.split(".")
     >>>
     >>> print(df0.head(n=4))
