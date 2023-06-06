@@ -112,9 +112,9 @@ class BERTAgent:
     >>>
     >>> # Load BERTAgent
     >>> dir0 = pathlib.Path().home()/"bertagent"
-    >>> model_path = "BERTAgent-on-HuggingFace"  # TODO OR a local copy ↓
     >>> model_path = dir0/"20230523T145242_status-DEPLOY_data-" \\
     >>>     "ft3x_testing-gold_epo-012_model-roberta-base/final"
+    >>> model_path = "EnchantedStardust/bertagent-best"  # OR a local copy ↑
     >>> tokenizer_path = model_path
     >>>
     >>> ba0 = BERTAgent(
@@ -151,9 +151,9 @@ class BERTAgent:
     >>>
     >>> # Load BERTAgent.
     >>> dir0 = pathlib.Path().home()/"bertagent"
-    >>> model_path = "BERTAgent-on-HuggingFace"  # TODO OR a local copy ↓
     >>> model_path = dir0/"20230523T145242_status-DEPLOY_data-" \\
     >>>     "ft3x_testing-gold_epo-012_model-roberta-base/final"
+    >>> model_path = "EnchantedStardust/bertagent-best"  # OR a local copy ↑
     >>> ba0 = BERTAgent(model_path = model_path)
     >>>
     >>> # Prepare dataframe.
@@ -201,7 +201,7 @@ class BERTAgent:
         log0: logging.Logger = logging.getLogger("dummy"),
     ):
         if model_path is None:
-            pass
+            model_path = "EnchantedStardust/bertagent-best"
 
         if tokenizer_path is None:
             tokenizer_path = model_path
