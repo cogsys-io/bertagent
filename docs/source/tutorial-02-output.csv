@@ -1,0 +1,42 @@
+,sents,ba0,BATot,BAPos,BANeg,BAAbs
+0,['She is a hard working individual'],[0.48],0.48,0.48,0.0,0.48
+1,['She is a hardly working individual'],[-0.62],-0.62,0.0,0.62,0.62
+2,['This thing was made of lead'],[-0.04],-0.04,0.0,0.04,0.04
+3,"['This is a car, it runs on gas']",[0.01],0.01,0.01,0.0,0.01
+4,"['This is a Karen, she runs for office']",[0.33],0.33,0.33,0.0,0.33
+5,"['This is a Jane, she runs for office']",[0.35],0.35,0.35,0.0,0.35
+6,['Striving to achieve my goals'],[0.72],0.72,0.72,0.0,0.72
+7,['Struggling to achieve my goals'],[-0.6],-0.6,0.0,0.6,0.6
+8,['Striving to make it'],[0.13],0.13,0.13,0.0,0.13
+9,['Struggling to make it'],[-0.52],-0.52,0.0,0.52,0.52
+10,['Striving to survive'],[-0.03],-0.03,0.0,0.03,0.03
+11,['Struggling to survive'],[-0.41],-0.41,0.0,0.41,0.41
+12,['Well planned and well executed'],[0.51],0.51,0.51,0.0,0.51
+13,['Coordinated activity'],[0.5],0.5,0.5,0.0,0.5
+14,['Uncoordinated activity'],[-0.61],-0.61,0.0,0.61,0.61
+15,['Not coordinated activity'],[-0.72],-0.72,0.0,0.72,0.72
+16,['Everything is messy and uncoordinated'],[-0.52],-0.52,0.0,0.52,0.52
+17,['A bad decisionmaker'],[-0.45],-0.45,0.0,0.45,0.45
+18,['A marvelous decisionmaker'],[0.45],0.45,0.45,0.0,0.45
+19,['They are submissive'],[-0.68],-0.68,0.0,0.68,0.68
+20,['They submitted to his will'],[-0.08],-0.08,0.0,0.08,0.08
+21,['They submitted a paper'],[0.04],0.04,0.04,0.0,0.04
+22,['They submitted a request'],[0.05],0.05,0.05,0.0,0.05
+23,['We are winners'],[0.51],0.51,0.51,0.0,0.51
+24,['We are losers'],[-0.41],-0.41,0.0,0.41,0.41
+25,['motivated'],[0.72],0.72,0.72,0.0,0.72
+26,['We are motivated'],[0.7],0.7,0.7,0.0,0.7
+27,['We are not motivated'],[-0.8],-0.8,0.0,0.8,0.8
+28,['We are unmotivated'],[-0.48],-0.48,0.0,0.48,0.48
+29,['Lazy and unmotivated'],[-0.85],-0.85,0.0,0.85,0.85
+30,['I want to give up'],[-0.49],-0.49,0.0,0.49,0.49
+31,['lost all hope'],[-0.57],-0.57,0.0,0.57,0.57
+32,"[""We'll lose anyway""]",[-0.43],-0.43,0.0,0.43,0.43
+33,['We should give up and say nothing'],[-0.41],-0.41,0.0,0.41,0.41
+34,['We must win'],[0.65],0.65,0.65,0.0,0.65
+35,['We will lead our way out of trouble'],[0.49],0.49,0.49,0.0,0.49
+36,['We must fight for our rights'],[0.29],0.29,0.29,0.0,0.29
+37,['We should take control and assert our position'],[0.71],0.71,0.71,0.0,0.71
+38,['We should take control'],[0.57],0.57,0.57,0.0,0.57
+39,['We shoud take controll'],[0.37],0.37,0.37,0.0,0.37
+40,"['Hard working individual', ' Hardly working individual']",[ 0.42 -0.41],0.0,0.21,0.21,0.42

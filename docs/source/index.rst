@@ -24,6 +24,7 @@
 
    readme
    installation
+   tutorial
    usage
    Package modules <modules>
    contributing
