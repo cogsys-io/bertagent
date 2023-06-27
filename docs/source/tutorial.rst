@@ -8,27 +8,41 @@ Tutorial
 Process a list of sentences
 ---------------------------
 
+
+Imports
+
 .. code-block:: python
 
-    >>> # Imports
     >>> import pathlib
     >>> from bertagent import BERTAgent
-    >>>
-    >>> # Initialize BERTAgent
+
+Initialize BERTAgent
+
+.. code-block:: python
+
     >>> ba0 = BERTAgent()
-    >>>
-    >>> # Provide example sentences
+
+Provide example sentences
+
+.. code-block:: python
+
     >>> sents = [
     >>>     "stiving to achieve my goals",
     >>>     "struglling to survive",
     >>>     "hardly working individual",
     >>>     "hard working individual",
     >>> ]
-    >>>
-    >>> # Assign agency
+
+Assign agency
+
+.. code-block:: python
+
     >>> vals = ba0.predict(sents)
-    >>>
-    >>> # Pritnt results
+
+Print results
+
+.. code-block:: python
+
     >>> for item in zip(sents, vals):
     >>>     print(item)
     #
@@ -50,10 +64,10 @@ Process a texts in pandas dataframe
    that is
    provided with ``BERTAgent``.
 
+Imports
 
 .. code-block:: python
 
-    >>> # Imports.
     >>> import pathlib
     >>> import pandas as pd
     >>> from tqdm import tqdm
@@ -61,16 +75,30 @@ Process a texts in pandas dataframe
     >>> from bertagent import EXAMPLE_SENTENCES as sents
     >>> tqdm.pandas()
     >>>
-    >>> # Load BERTAgent.
+
+Load BERTAgent
+
+.. code-block:: python
+
     >>> ba0 = BERTAgent()
-    >>>
-    >>> # Prepare dataframe.
+
+Prepare dataframe.
+
+.. code-block:: python
+
     >>> df0 = pd.DataFrame(dict(text=sents))
-    >>>
-    >>> # Extract sentences from text.
+
+Extract sentences from text.
+
+.. code-block:: python
+
     >>> # NOTE: This is not an optimal method to get sentences from real data!
     >>> df0["sents"] = df0.text.str.split(".")
-    >>> # check input dataframe
+
+Check input dataframe
+
+.. code-block:: python
+
     >>> print(df0.head(n=4))
 
 
@@ -80,12 +108,23 @@ Process a texts in pandas dataframe
    :header-rows: 1
 
 
+
+
+Evaluate agency
+
 .. code-block:: python
 
-    >>> # Evaluate agency
     >>> model_id = "ba0"
     >>> df0[model_id] = df0.sents.progress_apply(ba0.predict)
-    >>>
+
+Compute more specific indices of agency
+(``tot`` = total = sum af all values for all sentences,
+``pos`` = only positive,
+``neg`` = only negative,
+``abs`` = sum of absolute values)
+
+.. code-block:: python
+
     >>> df0["BATot"] = df0[model_id].apply(ba0.tot)
     >>> df0["BAPos"] = df0[model_id].apply(ba0.pos)
     >>> df0["BANeg"] = df0[model_id].apply(ba0.neg)
@@ -100,7 +139,11 @@ Process a texts in pandas dataframe
     >>>     "BAAbs",
     >>> ]
     >>>
-    >>> # Check example rows.
+
+Check output
+
+.. code-block:: python
+
     >>> df0[cols0].tail(n=8)
 
 
@@ -108,3 +151,9 @@ Process a texts in pandas dataframe
    :file: tutorial-02-output.csv
    :widths: 5, 70, 10, 10, 10, 10, 10
    :header-rows: 1
+
+
+.. note::
+   The last row demonstrates how a text that contains
+   multiple sentences is handled, each sentence is assigned a
+   separate agency score.
