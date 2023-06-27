@@ -31,7 +31,8 @@ Quantify linguistic agency in textual data.
 Features
 --------
 
-* TODO
+* Detect linguistic agnecy in text using large language model
+  (pretrained transformers architecture).
 
 Credits
 -------
