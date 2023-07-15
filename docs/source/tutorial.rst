@@ -45,18 +45,20 @@ Print results
 .. code-block:: python
 
     >>> for item in zip(sents, vals):
-    >>>     print(item)
-    # ('hardly working individual', -0.5707859396934509)
-    # ('hard working individual', 0.43518713116645813)
-    # ('stiving to achieve my goals', 0.7477692365646362)
-    # ('struglling to achieve my goals', 0.5668210983276367)
-    # ('struglling to survive', 0.043704114854335785)
-    # ('unable to survive', -0.5661113262176514)
-    # ('this car runs on gasoline with lead', -0.02863001450896263)
-    # ('this car runs on gasloline and it will lead us', 0.06601562350988388)
-    # ('this politician runs for office and he will lead us', 0.5805772542953491)
-    # # NOTE: exact values may differ slightly from the above
-    # # depending on the BERTAgent model and version used.
+    >>>     print(item[0].__repr__(), round(item[1], 2))
+    #
+    # 'hardly working individual' -0.57
+    # 'hard working individual' 0.44
+    # 'stiving to achieve my goals' 0.75
+    # 'struglling to achieve my goals' 0.57
+    # 'struglling to survive' 0.04
+    # 'unable to survive' -0.57
+    # 'this car runs on gasoline with lead' -0.03
+    # 'this car runs on gasloline and it will lead us' 0.07
+    # 'this politician runs for office and he will lead us' 0.58
+    #
+    # NOTE: exact values may differ slightly from the above
+    # depending on the BERTAgent model and version used.
 
 
 Process a texts in pandas dataframe
