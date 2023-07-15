@@ -230,12 +230,8 @@ class BERTAgent:
         List[float]
             List of scores.
 
-
         .. note::
             See doc for the BERTAgent class for usage examples.
-
-
-
 
         """
         batch_encodings = self.tokenizer(

@@ -9,17 +9,11 @@ Process a list of sentences
 ---------------------------
 
 
-Imports
+Import and initialize BERTAgent
 
 .. code-block:: python
 
-    >>> import pathlib
     >>> from bertagent import BERTAgent
-
-Initialize BERTAgent
-
-.. code-block:: python
-
     >>> ba0 = BERTAgent()
 
 Provide example sentences
@@ -27,12 +21,19 @@ Provide example sentences
 .. code-block:: python
 
     >>> sents = [
-    >>>     "stiving to achieve my goals",
-    >>>     "struglling to survive",
-    >>>     "hardly working individual",
-    >>>     "hard working individual",
-    >>> ]
+    >>>    ...:     "hardly working individual",
+    >>>    ...:     "hard working individual",
+    >>>    ...:     "stiving to achieve my goals",
+    >>>    ...:     "struglling to achieve my goals",
+    >>>    ...:     "struglling to survive",
+    >>>    ...:     "unable to survive",
+    >>>    ...:     "this car runs on gasoline with lead",
+    >>>    ...:     "this car runs on gasloline and it will lead us",
+    >>>    ...:     "this politician runs for office and he will lead us",
+    >>>    ...: ]
 
+
+    
 Assign agency
 
 .. code-block:: python
@@ -45,14 +46,17 @@ Print results
 
     >>> for item in zip(sents, vals):
     >>>     print(item)
-    #
-    # ('stiving to achieve my goals', 0.7477692365646362)
-    # ('struglling to survive', 0.043704114854335785)
     # ('hardly working individual', -0.5707859396934509)
     # ('hard working individual', 0.43518713116645813)
-    #
-    # NOTE: exact values may differ slightly from the above
-    # depending on the BERTAgent model used and version.
+    # ('stiving to achieve my goals', 0.7477692365646362)
+    # ('struglling to achieve my goals', 0.5668210983276367)
+    # ('struglling to survive', 0.043704114854335785)
+    # ('unable to survive', -0.5661113262176514)
+    # ('this car runs on gasoline with lead', -0.02863001450896263)
+    # ('this car runs on gasloline and it will lead us', 0.06601562350988388)
+    # ('this politician runs for office and he will lead us', 0.5805772542953491)
+    # # NOTE: exact values may differ slightly from the above
+    # # depending on the BERTAgent model and version used.
 
 
 Process a texts in pandas dataframe
