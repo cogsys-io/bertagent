@@ -24,8 +24,8 @@ Provide example sentences
     >>>    ...:     "hardly working individual",
     >>>    ...:     "hard working individual",
     >>>    ...:     "striving to achieve my goals",
-    >>>    ...:     "strugling to achieve my goals",
-    >>>    ...:     "strugling to survive",
+    >>>    ...:     "struggling to achieve my goals",
+    >>>    ...:     "struggling to survive",
     >>>    ...:     "unable to survive",
     >>>    ...:     "this car runs on gasoline with lead",
     >>>    ...:     "this car runs on gasoline and it will lead us",
@@ -50,8 +50,8 @@ Print results
     #  'hardly working individual' : -0.57
     #  'hard working individual' : 0.44
     #  'striving to achieve my goals' : 0.73
-    #  'strugling to achieve my goals' : 0.31
-    #  'strugling to survive' : -0.08
+    #  'struggling to achieve my goals' : -0.67
+    #  'struggling to survive' : -0.52
     #  'unable to survive' : -0.57
     #  'this car runs on gasoline with lead' : -0.03
     #  'this car runs on gasoline and it will lead us' : 0.09
