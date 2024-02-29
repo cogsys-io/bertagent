@@ -106,6 +106,6 @@ release: dist ## package and upload a release
 	twine upload dist/*
 
 version-check: ## display git versioning tags and the actual current version from versioneer
-	@git tag | grep "bertagent-v" | sed -e "s|bertagent-v||g"
+	@git tag | grep "bertagent-v" | sed -e "s|bertagent-v||g" | sort -V
 	@echo "----------------"
 	@python -c "import bertagent; print(bertagent.__version__+' [← current]')"
