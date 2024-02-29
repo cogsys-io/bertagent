@@ -81,7 +81,7 @@ class BERTAgent:
     ----------
     model_path : Union[str, pathlib.Path]
         path to huggingface repository or a local directory
-        containing fine-tuned model (e.g., BERTAgent)
+        containing the fine-tuned model (e.g., BERTAgent)
 
     tokenizer_path : Union[str, pathlib.Path]
         path to text tokenizer
@@ -180,11 +180,12 @@ class BERTAgent:
 
     def __init__(
         self,
-        model_path: Union[str, pathlib.Path] = None,
+        model_path: Union[str, pathlib.Path, None] = None,
         tokenizer_path: Union[str, pathlib.Path, None] = None,
         tokenizer_params: Dict = TOKENIZER_PARAMS,
         device: Union[str, torch.device] = "cuda",  # TODO checkup
         # device: str = "cuda",
+        revision: Union[str, None] = None,
         factor: float = 1.0,
         bias: float = 0.0,
         log0: logging.Logger = logging.getLogger("dummy"),
@@ -192,16 +193,22 @@ class BERTAgent:
         if model_path is None:
             model_path = "EnchantedStardust/bertagent-best"
 
+        if revision is None:
+            revision = "09044f6c38c4af0d9ddf1d9eea13a98bb932e7f6" # version 1.0.22
+            revision = "5bae55efbd95dd51759d275410cea36c81109227" # version 1.0.24 (added negation training)
+
         if tokenizer_path is None:
             tokenizer_path = model_path
 
         self.model = AutoModelForSequenceClassification.from_pretrained(
             str(model_path),
             num_labels=1,
+            revision=revision,
         )
         self.tokenizer = AutoTokenizer.from_pretrained(
             str(tokenizer_path),
             do_lower_case=True,
+            revision=revision,
         )
         self.tokenizer_params = tokenizer_params
         self.device = device
