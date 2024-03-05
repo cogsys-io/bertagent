@@ -21,7 +21,9 @@ from transformers import AutoModelForSequenceClassification
 from transformers import AutoTokenizer
 
 EXAMPLE_SENTENCES = [
+    "He is a hard working individual",
     "She is a hard working individual",
+    "He is a hardly working individual",
     "She is a hardly working individual",
     "This thing was made of lead",
     "This is a car, it runs on gas",
