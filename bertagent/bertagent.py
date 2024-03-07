@@ -3,6 +3,7 @@
 
 """BERTAgent main module."""
 
+import re
 import torch
 import logging
 import pathlib
@@ -250,6 +251,8 @@ class BERTAgent:
             See doc for the BERTAgent class for usage examples.
 
         """
+        # Remove repeated whitespace characters.
+        sentences = [re.sub(r"\s\s+", " ", sent).strip() for sent in sentences]
         batch_encodings = self.tokenizer(
             list(sentences),
             None,
