@@ -44,11 +44,14 @@ requirements = [
     "GitPython>=3.1.31",
     "blessed>=1.20.0",
     "srsly>=2.4.0",
-    "pandas>=1.4.0",
+    "pandas>=2.0.3",
     "pytz>=2022.1",
     "tzlocal>=4.2",
     "humanfriendly>=10.0",
     "contexttimer>=0.3.3",
+    "transformers>=4.38.1",
+    "huggingface-hub>=0.21.2",
+    "datasets>=2.17.1",
 ]
 
 extra_requirements = {

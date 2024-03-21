@@ -4,19 +4,31 @@
 Tutorial
 ========
 
+In this tutorial, first, we will evaluate linguistic agency in a list of
+sentences (each sentence will be evaluated separately). Then we will demonstrate
+how to use BERTAgent on a dataframe that contains a column of textual data (each
+entry in this column will also be evaluated separately).
+
+.. note::
+   See :ref:`installation:Installation` section for installation instructions.
+
+.. note::
+   For a detailed documentation of BERTAgent's functionality
+   please refer to
+   :ref:`package docs <bertagent:bertagent package>` section.
 
 Process a list of sentences
 ---------------------------
 
+First, we need to import and initialize BERTAgent.
 
-Import and initialize BERTAgent
 
 .. code-block:: python
 
     >>> from bertagent import BERTAgent
     >>> ba0 = BERTAgent()
 
-Provide example sentences
+Then we need to provide example sentences as a list of strings.
 
 .. code-block:: python
 
@@ -33,8 +45,11 @@ Provide example sentences
     >>>    ...: ]
 
 
-    
-Assign agency
+We get the linguistic agency evaluated for each utterance by running the
+`predict` method.
+:meth:`bertagent.BERTAgent.predict`
+
+Check the :meth:`fancy term <bertagent.BERTAgent.predict>` documentation for more advanced usage.
 
 .. code-block:: python
 
@@ -65,10 +80,25 @@ Process a texts in pandas dataframe
 -----------------------------------
 
 .. note::
-   See in the example below we use
+   Here we use
    ``EXAMPLE_SENTENCES`` data
    that is
    provided with ``BERTAgent``.
+   The code below provides an example use of
+   BERTAgent that can be uses as a template
+   to analyze any other textual data provided by user.
+   Importantly BERTAgent should be used to quantify agency in short
+   utterances (preferably a single sentence).
+   This is why we need to provide BERTAgnet
+   with a list of sentences.
+   If the user has longer texts they can be
+   "chunkified" using brute force
+   approach or (prefferabely) using
+   natural language processing libraries
+   such as
+   `SpaCy <https://spacy.io>`_ for more information.
+
+
 
 Imports
 

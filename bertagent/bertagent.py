@@ -61,17 +61,28 @@ EXAMPLE_SENTENCES = [
     "I'm quite motivated.",
     "I'm motivated.",
     "I'm absolutely motivated.",
-    "I'm not lazy.", # 0.36
-    "I'm in no way lazy.", # 0.11
-    "I'm not at all lazy.", # 0.06
-    "I'm anything but lazy.", # -0.48
-    "I'm one of the least lazy people you'll ever meet.", # -0.51
+    "I'm not lazy.",
+    "I'm not  lazy.",
+    "I'm in no way lazy.",
+    "I'm not at all lazy.",
+    "I'm anything but lazy.",
+    "I'm one of the least lazy people you'll ever meet.",
     "We should give up and say nothing",
     "We must win",
     "We will lead our way out of trouble",
     "We must fight for our rights",
     "We should take control and assert our position",
     "We should take control",
+    "I sat on the couch and watched funny comedies all day",
+    "I sat on the couch and watched educational documentaries all day",
+    "I hate soup!",
+    "I hate soup.",
+    "I love soup!",
+    "I love soup.",
+    "I make my own decisions.",
+    "I make my own decisions I make my own decisions I make my own decisions",
+    "She was able to decide without any permission from others.",
+    "She was able to decide only after she was given permission to do so.",
 ]
 
 MAX_LENGTH = 128
@@ -85,7 +96,10 @@ TOKENIZER_PARAMS = dict(
 
 
 class BERTAgent:
-    """Evaluates agency in a list of sentences.
+    """
+    Evaluates agency in a list of sentences.
+
+    .. _BA-ref:
 
     Parameters
     ----------
