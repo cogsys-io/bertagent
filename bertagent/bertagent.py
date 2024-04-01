@@ -99,8 +99,6 @@ class BERTAgent:
     """
     Evaluates agency in a list of sentences.
 
-    .. _BA-ref:
-
     Parameters
     ----------
     model_path : Union[str, pathlib.Path]
@@ -250,6 +248,8 @@ class BERTAgent:
 
     def predict(self, sentences: List[str]) -> List[float]:
         """Predict agency for a list of texts.
+
+        .. _BA-ref:
 
         Parameters
         ----------

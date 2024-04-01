@@ -49,7 +49,7 @@ We get the linguistic agency evaluated for each utterance by running the
 `predict` method.
 :meth:`bertagent.BERTAgent.predict`
 
-Check the :meth:`fancy term <bertagent.BERTAgent.predict>` documentation for more advanced usage.
+Check the :meth:`predict <bertagent.BERTAgent.predict>` documentation for more advanced usage.
 
 .. code-block:: python
 
