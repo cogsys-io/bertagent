@@ -24,6 +24,7 @@ Quantify linguistic agency in textual data.
 * Publication: BERTAgent: A Novel Tool to Quantify Agency in Textual Data (doi: TBA)
 * PyPi: https://pypi.org/project/bertagent/
 * GitHub: https://github.com/cogsys-io/bertagent
+* SOM: https://github.com/cogsys-io/bertagent-SOM
 * Documentation: https://bertagent.readthedocs.io (https://bertagent.rtfd.io)
 * Free software: GNU General Public License v3
 
